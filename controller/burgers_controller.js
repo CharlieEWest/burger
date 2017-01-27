@@ -7,11 +7,7 @@ router.get('/', function(req,res) {
 });
 
 router.get('/burger', function(req,res) {
-	// Burger.findAll({}).then(function(data){
-	// 	var hbsObject = {burger : data}
-	// 	console.log(hbsObject)
-	// 	res.render('index', hbsObject);
-	// });
+
 
 	Burger.all(function(data){
 		var hbsObject = {burgers : data}
@@ -19,7 +15,6 @@ router.get('/burger', function(req,res) {
 		res.render('index', hbsObject);
 	});
 });
-
 
 router.post('/burger/create', function(req,res) {
 	burger.create(['name', 'devoured'], [req.body.name, req.body.devoured], function(data){
